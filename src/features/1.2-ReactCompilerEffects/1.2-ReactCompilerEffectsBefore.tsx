@@ -1,4 +1,4 @@
-import { useMemo, useCallback } from 'react';
+import { useMemo, useCallback, useEffect } from 'react';
 
 interface User {
   id: number;
@@ -19,6 +19,14 @@ const UserProfile = ({ user }: UserProfileProps) => {
   const handleClick = useCallback(() => {
     alert(`Following ${user.name}`);
   }, [user.name]);
+
+  useEffect(() => {
+    // Simulate some side effect that uses the memoized values, eg. API call could go here
+    if (Math.random() > 0.5) {
+      handleClick();
+      console.log(welcomeMessage);
+    }
+  }, [handleClick, welcomeMessage]);
 
   return (
     <div>

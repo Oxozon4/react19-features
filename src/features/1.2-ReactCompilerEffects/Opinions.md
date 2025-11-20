@@ -1,0 +1,3 @@
+My experience with React Compiler has shown that you shouldn't trust the compiler fully. It can still definitely cause infinite render loops. If you're using something in useEffect, just use useMemo and useCallback (even if you need to apply a chain of things depending on each other). From what I know we will soon get automatic dependency array in the compiler in the future. That will get rid of the array entirely. Until then, don't ignore your lint warnings and don't risk an infinite loop in your apps. The compiler is not always that smart.
+
+https://github.com/reactwg/react-compiler/discussions/18
